@@ -1,7 +1,8 @@
 :root {
     --bg-color: #fff;
     --bg-color-dark: #919191;
-}
+    --card-width: 200px
+}   
 
 html {
     height: 100vh;
@@ -42,21 +43,21 @@ body {
     gap: 15px;
 }
 
-.player-marker-choice {
-    height: 200px;
-    width: 200px;
+.player-marker {
+    height: var(--card-width);
+    width: var(--card-width);
     text-align: center;
     display: grid;
     align-items: center;
     background-color: var(--bg-color);
 }
 
-.player-marker-choice.is-chosen {
+.choice.is-chosen {
     background-color: var(--bg-color-dark);
     box-shadow: 0px 0px 10px 5px var(--bg-color-dark);
 }
 
-.player-marker-choice:hover {
+.choice:hover {
     box-shadow: 0px 0px 10px 5px var(--bg-color-dark);
 }
 
@@ -70,6 +71,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    display: none;
 }
 
 .user-turn {
@@ -82,8 +84,26 @@ body {
 }
 
 .game-board {
-    display: grid
+    --board-size: calc(var(--card-width) * 3);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: #10EF9D;
+    width: var(--board-size);
+    height: var(--board-size);
 }
+
 .game-cell {
-    
+    display: grid;
+    align-items: center;
+    justify-content: center; 
+    background-position: center;
+    background-repeat: no-repeat;  
+    background-size: cover;
+}
+
+.game-cell {
+    width: 100%;
+    height: 100%;
+
 }

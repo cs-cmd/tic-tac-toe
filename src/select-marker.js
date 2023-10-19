@@ -1,5 +1,3 @@
-import { createPlayer } from "./player.js";
-
 const chosenMarker = (function() {
     let lastChosen = null;
     
@@ -35,23 +33,27 @@ const chosenMarker = (function() {
     return { setChosen, getMarkerValue };
 })();
 
-// add event listeners to player marker choice variables
-Array.from(document.getElementsByClassName('player-marker-choice')).forEach(function(div) {
-    div.addEventListener('click', () => {
-        chosenMarker.setChosen(div);
+function setUpChosenDivs() {
+    // add event listeners to player marker choice variables
+    Array.from(document.getElementsByClassName('choice')).forEach(function(div) {
+        div.addEventListener('click', () => {
+            chosenMarker.setChosen(div);
+        });
     });
-});
+}
 
-// set button to set player choice
-document.getElementById('submit-choice-button').addEventListener('click', function(e) {
-    e.preventDefault();
-    let marker = chosenMarker.getMarkerValue();
-    if (marker === '-') {
-        // please select a value!
-        return;
-    }
-    
-    document.getElementById('marker-selector').close();
+function setUpButtonClicks() {
+    // set button to set player choice
+    document.getElementById('submit-choice-button').addEventListener('click', function(e) {
+        e.preventDefault();
+        let marker = chosenMarker.getMarkerValue();
+        if (marker === '-') {
+            // please select a value!
+            return;
+        }
+        
+        document.getElementById('marker-selector').close();
+    });
+}
 
-    document.getElementById('main-game-board').setAttribute('player-marker', marker);
-});
+export { chosenMarker, setUpButtonClicks, setUpChosenDivs };
