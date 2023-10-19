@@ -45,7 +45,11 @@ Array.from(document.getElementsByClassName('player-marker-choice')).forEach(func
 // set button to set player choice
 document.getElementById('submit-choice-button').addEventListener('click', function(e) {
     e.preventDefault();
-    console.log(chosenMarker.getMarkerValue());
-    let dialog = document.getElementById('marker-selector');
-    dialog.close();
+    let marker = chosenMarker.getMarkerValue();
+    if (marker === '-') {
+        // please select a value!
+        return;
+    }
+    
+    document.getElementById('marker-selector').close();
 });
