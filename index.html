@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <section class="main-menu">
+    <section class="main-menu" style="display: none">
         <dialog open id="marker-selector">
         <h1>Select your marker!</h1>
             <form method="dialog" class="marker-form">
@@ -19,10 +19,19 @@
         </dialog>
     </section>
 
-    <div class="main-game-board">
+    <div class="main-game-board" id="main-game-board">
         AAAAAHAHHHH
+        <div class="user-turn">
+            <div class="player-marker-choice" inactive player-marker="X">X</div>
+            <div class="player-marker-choice" inactive player-marker="O">O</div>
+        </div>
+
+        <div class="game-board">
+            
+        </div>
     </div>
     
     <script type='module' src="./src/select-marker.js"></script>
+    <script src="./src/game-driver.js"></script>
 </body>
 </html>

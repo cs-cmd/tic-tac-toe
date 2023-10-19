@@ -52,4 +52,6 @@ document.getElementById('submit-choice-button').addEventListener('click', functi
     }
     
     document.getElementById('marker-selector').close();
+
+    document.getElementById('main-game-board').setAttribute('player-marker', marker);
 });

@@ -13,6 +13,11 @@ body {
     height: 100%;
     text-align: center;
     overflow: hidden;
+    background-image: linear-gradient(45deg, #10EF9D, #EF1062);
+}
+
+.inactive {
+    display: none;
 }
 
 #marker-selector {
@@ -27,7 +32,6 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    background-image: linear-gradient(45deg, #10EF9D, #EF1062);
 }
 
 .marker-form {
@@ -62,6 +66,24 @@ body {
 }
 
 .main-game-board {
-    background-color: #000;
-    visibility: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-turn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+    gap: 15px;
+    padding: 15px;
+    background-color: #EF1062;
+}
+
+.game-board {
+    display: grid
+}
+.game-cell {
+    
 }
